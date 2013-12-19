@@ -1,0 +1,33 @@
+{
+    "name": "express-pipeworks",
+    "descritpion": "Collection of Express middleware providing convenient plumbing of Node streams",
+    "keywords": [
+        "expresjs",
+        "middleware",
+        "redirect",
+        "filter",
+        "stream"
+    ],
+    "author": "Tomasz Szarstuk <szarsti@gmail.com>",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/szarsti/express-redirexisting.git"
+    },
+    "version": "0.1.0",
+    "main": "index",
+    "scripts": {
+        "test": "mocha"
+    },
+    "dependencies": {
+    },
+    "devDependencies": {
+        "mocha": "~1.15.1",
+        "chai": "~1.8.1",
+        "sinon-chai": "~2.4.0",
+        "sinon": "~1.7.3"
+    },
+    "engines": {
+        "node": ">= 0.8.0"
+    }
+}
