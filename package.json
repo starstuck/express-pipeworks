@@ -1,6 +1,6 @@
 {
     "name": "express-pipeworks",
-    "descritpion": "Collection of Express middleware providing convenient plumbing of Node streams",
+    "description": "Collection of Express middleware providing convenient plumbing of Node streams",
     "keywords": [
         "expresjs",
         "middleware",
@@ -14,7 +14,7 @@
         "type": "git",
         "url": "https://github.com/szarsti/express-redirexisting.git"
     },
-    "version": "0.1.0",
+    "version": "0.1.1",
     "main": "index",
     "scripts": {
         "test": "mocha"
