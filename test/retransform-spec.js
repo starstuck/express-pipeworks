@@ -37,14 +37,24 @@ describe('ReTransform', function() {
         delete output;
     });
 
-    it.skip('should replace strings synchronously');
+    it('should allow simple string replacement', function(done) {
+        var stream = new ReTransform(/<\/body>/, '<foot>, by pipeworks</foot>');
+        stream.pipe(output);
+        stream.end('<html><body><p>Hello world!</p></body></html>');
 
-    it('should replace string asynchronously', function(done) {
+        setTimeout(function() {
+            expect(output.end).to.have.been.calledOnce;
+            expect(output.buffer).to.equal('<html><body><p>Hello world!</p><foot>, by pipeworks</foot></html>');
+            done();
+        }, 0);
+    });
+
+    it('should allow function feeding stream data', function(done) {
         
-        var filter = sinon.spy(function(match, send){
+        var filter = sinon.spy(function(match, out){
                 sendReplacement = function(){
-                    send('<foot>, by pipeworks</foot>');
-                    process.nextTick(afterSendingReplacement);
+                    out.end('<foot>, by awesome pipeworks</foot>');
+                    setTimeout(afterSendingReplacement, 0);
                 };
             }),
             stream = new ReTransform(/<\/body>/, filter),
@@ -62,7 +72,7 @@ describe('ReTransform', function() {
         
         function afterSendingReplacement() {
             expect(output.end).to.have.been.calledOnce;
-            expect(output.buffer).to.equal('<html><body><p>Hello world!</p><foot>, by pipeworks</foot></html>');
+            expect(output.buffer).to.equal('<html><body><p>Hello world!</p><foot>, by awesome pipeworks</foot></html>');
             done();
         }
 

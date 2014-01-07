@@ -14,8 +14,8 @@
         "type": "git",
         "url": "https://github.com/szarsti/express-redirexisting.git"
     },
-    "version": "0.1.1",
-    "main": "index",
+    "version": "0.2.0",
+    "main": "lib/pipeworks",
     "scripts": {
         "test": "mocha"
     },
